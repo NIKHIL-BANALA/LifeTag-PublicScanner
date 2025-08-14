@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LifeTag Scanner</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+</head>
+<body>
+
+    <div class="container">
+        <header class="app-header">
+            <i class="fa-solid fa-shield-heart"></i>
+            <h1>LifeTag</h1>
+            <p>Emergency Information Scanner</p>
+        </header>
+
+        <main id="scanner-container" class="card">
+            <div id="qr-reader"></div>
+            <div id="qr-reader-status">Requesting camera access...</div>
+        </main>
+
+        <main id="result-container" class="card hidden">
+            <div class="profile-header">
+                <i class="fa-solid fa-user-circle profile-icon"></i>
+                <h2 id="full_name"></h2>
+                <p id="address"></p>
+            </div>
+            <div class="details-section">
+                <h3>Emergency Contact Information</h3>
+                <div class="info-grid">
+                    <div class="info-item">
+                        <i class="fa-solid fa-user-shield"></i>
+                        <div>
+                            <span class="label">Name</span>
+                            <span class="value" id="emergency_contact_name"></span>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <i class="fa-solid fa-heart-pulse"></i>
+                        <div>
+                            <span class="label">Relation</span>
+                            <span class="value" id="emergency_contact_relation"></span>
+                        </div>
+                    </div>
+                    <div class="info-item full-width">
+                        <i class="fa-solid fa-map-location-dot"></i>
+                        <div>
+                            <span class="label">Address</span>
+                            <span class="value" id="emergency_contact_address"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <a href="#" id="call-button" class="call-btn">
+                <i class="fa-solid fa-phone-volume"></i>
+                <span>Call Emergency Contact</span>
+            </a>
+            <button id="rescan-button" class="rescan-btn">
+                <i class="fa-solid fa-qrcode"></i>
+                <span>Scan Another Tag</span>
+            </button>
+        </main>
+
+        <footer>
+            <p>Powered by Gemini</p>
+        </footer>
+    </div>
+
+    <script src="https://unpkg.com/html5-qrcode" type="text/javascript"></script>
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>
